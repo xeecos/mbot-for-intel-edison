@@ -1,0 +1,15 @@
+[Unit]
+Description=Open Automation Service
+After=network.service
+[Service]
+ExecStart=/bin/sh -c "/usr/bin/node /home/root/mblockly/app.js"
+WorkingDirectory=/home/root/mblockly/
+Restart=always
+RestartSec=5s
+[Install]
+WantedBy=multi-user.target
+#cp mblockly.service /etc/systemd/system/mblockly.service
+#chmod 777 /etc/systemd/system/mblockly.service
+#systemctl daemon-reload
+#systemctl start mblockly.service
+#systemctl enable mblockly.service
