@@ -22,6 +22,7 @@ var morgan = require('morgan')
 var ws = require('ws');
                               
 var sleep = require('sleep');
+sleep.sleep(2);
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -54,8 +55,8 @@ http.listen(3000, function(){
 });
 
 var STREAM_MAGIC_BYTES = 'jsmp'; // Must be 4 bytes
-var width = 320;
-var height = 240;
+var width = 640;
+var height = 480;
 
 // WebSocket server
 var wsServer = new (ws.Server)({ port: 8084 });
