@@ -17,10 +17,11 @@ serial.open(function (error) {
     });
   }	
 });
-var childProcess = require('child_process')
+var childProcess = require('child_process');
 var morgan = require('morgan')
 var ws = require('ws');
-
+                              
+var sleep = require('sleep');
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -88,6 +89,7 @@ wsServer.broadcast = function(data, opts) {
   }
 };
 function resetStream(){
+	childProcess.exec('kill $(pidof ffmpeg)');
   childProcess.exec('~/mblockly/bin/do_ffmpeg.sh');
 };
 // HTTP server to accept incoming MPEG1 stream
@@ -103,6 +105,8 @@ httpVideo.createServer(function (req, res) {
 }).listen(8082, function () {
   console.log('Listening for video stream on port 8082');
 
+childProcess.exec('kill $(pidof ffmpeg)');
+sleep.sleep(1);
   // Run do_ffmpeg.sh from node                                                   
-  childProcess.exec('~/mblockly/bin/do_ffmpeg.sh');
+  childProcess.exec('/home/root/mblockly/bin/do_ffmpeg.sh');
 });

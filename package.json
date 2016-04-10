@@ -9,6 +9,7 @@
     "socket.io": "^1.4.5",
     "websocket": "^1.0.22",
     "ws": "^1.0.1",
+    "sleep": "^3.0.1",
 	"morgan":"^1.7.0"
   },
   "devDependencies": {},
