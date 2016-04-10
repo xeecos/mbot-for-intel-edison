@@ -15,6 +15,7 @@
 
 <script src="js/socket.io-1.4.5.js"></script>
 <script src="js/vendors/acorn_interpreter.js"></script>
+<script src="js/jsmpg.js"></script>
 <script src="../../blockly_uncompressed.js"></script>
 <script src="../../msg/js/en.js"></script>
 <!-- <script src="../../javascript_compressed.js"></script> -->
@@ -79,7 +80,7 @@
         <div id="menuLeft">
             <!-- logo -->
             <a id="logo" class="logo" href="javascript:void(0)"></a>
-
+			
             <!-- boxscroll -->
             <div id="toolboxScrollingDiv">
                 <div id="toolboxDiv">
@@ -123,10 +124,21 @@
             <div class="restore btn" id="myProjectBtn" data-panel="panel1">
                 My Project
             </div>
-
             <div id="newProjectBtn" class="btn">
                 New Project
             </div>
+			<div style="margin-left:-275px;margin-top:10px;"><canvas id="canvas-video" width="320" height="240"></canvas></div>
+			<script type="text/javascript">
+				// CHANGE THIS TO THE APPROPRIATE WS ADDRESS
+				var domain = window.location.href.split("//")[1].split(":")[0];
+				var wsUrl = 'ws://'+domain+':8084/';
+				// Show loading notice
+				var canvas = document.getElementById('canvas-video');
+				var ctx = canvas.getContext('2d');
+				// Start the player
+				var client = new WebSocket(wsUrl);
+				var player = new jsmpeg(client, { canvas:canvas });
+			</script>
             <div id="saveBtn" class="tool-btn"></div>
         </div>
 
@@ -217,7 +229,7 @@
     <category name="Begin" class="category_start">
       <block type="start_whengo"></block>
       <block type="start_whenif"></block>
-      <block type="when_shake"></block>
+      <!--<block type="when_shake"></block>-->
       <block type="when_receieve_light"></block>
       <block type="when_obstacle_ahead"></block>
       <block type="when_button_on_top_pressed"></block>
@@ -348,11 +360,11 @@
     </category>
 
     <category name="Event" class="category_event">
-        <block type="tablet_shaked"></block>
+        <!--<block type="tablet_shaked"></block>
         <block type="tablet_tilt_left"></block>
         <block type="tablet_tilt_right"></block>
         <block type="tablet_tilt_backward"></block>
-        <block type="tablet_tilt_forward"></block>
+        <block type="tablet_tilt_forward"></block>-->
         <block type="linefollower_reads"></block>
     </category>
 

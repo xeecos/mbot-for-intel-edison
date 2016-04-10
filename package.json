@@ -7,7 +7,9 @@
     "express": "^4.13.4",
     "serialport": "^2.0.0",
     "socket.io": "^1.4.5",
-    "websocket": "^1.0.22"
+    "websocket": "^1.0.22",
+    "ws": "^1.0.1",
+	"morgan":"^1.7.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -19,11 +21,10 @@
   },
   "keywords": [
     "mbot",
-    "mblockly",
-    "makeblock",
-    "arduino",
     "intel",
-    "edison"
+    "edison",
+    "makeblock",
+    "arduino"
   ],
   "author": "ander yin",
   "license": "ISC",
