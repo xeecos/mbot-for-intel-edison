@@ -153,11 +153,11 @@ MBlockly.Control.buildModuleWriteMove = function( leftSpeed,rightSpeed) {
     a[3] = 0;
     a[4] = this.SETTING.WRITEMODULE;
     a[5] = 5;
-    a[7] = leftSpeed&0xff;
-    a[8] = (leftSpeed>>8)&0xff;
-    a[9] = rightSpeed&0xff;
-    a[10] = (rightSpeed>>8)&0xff;
-    a[11] = this.SETTING.CODE_COMMON[2];
+    a[6] = leftSpeed&0xff;
+    a[7] = (leftSpeed>>8)&0xff;
+    a[8] = rightSpeed&0xff;
+    a[9] = (rightSpeed>>8)&0xff;
+    a[10] = this.SETTING.CODE_COMMON[2];
     this.sendRequest(a);
 };
 /**
